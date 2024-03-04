@@ -1,0 +1,83 @@
+{
+  "name": "template-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev:web": "MODE=web vite --mode=web",
+    "dev:desktop": "MODE=desktop vite --mode=desktop",
+    "dev:storybook": "storybook dev -p 6006",
+    "dev": "MODE=web vite",
+    "build:web": "tsc && vite build",
+    "build:desktop": "tsc && electron-builder",
+    "build:storybook": "storybook build",
+    "build:all": "tsc && vite build && electron-builder && storybook build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@mantine/carousel": "6.0.21",
+    "@mantine/core": "6.0.21",
+    "@mantine/dates": "6.0.21",
+    "@mantine/dropzone": "6.0.21",
+    "@mantine/form": "6.0.21",
+    "@mantine/hooks": "6.0.21",
+    "@mantine/modals": "6.0.21",
+    "@mantine/notifications": "6.0.21",
+    "@mantine/nprogress": "6.0.21",
+    "@mantine/prism": "6.0.21",
+    "@mantine/spotlight": "6.0.21",
+    "@mantine/tiptap": "6.0.21",
+    "@tabler/icons-react": "^2.47.0",
+    "@tiptap/extension-link": "^2.2.4",
+    "@tiptap/react": "^2.2.4",
+    "@tiptap/starter-kit": "^2.2.4",
+    "dayjs": "^1.11.10",
+    "embla-carousel-react": "^8.0.0",
+    "module-alias": "^2.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/react-vite": "^7.6.17",
+    "@storybook/test": "^7.6.17",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "@vitejs/plugin-react": "^4.0.4",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "electron": "^26.1.0",
+    "electron-builder": "^24.6.4",
+    "eslint": "^8.48.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "eslint-plugin-storybook": "^0.8.0",
+    "storybook": "^7.6.17",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vite-plugin-electron": "^0.14.0",
+    "vite-plugin-electron-renderer": "^0.14.5",
+    "vite-plugin-terminal": "^1.2.0",
+    "webpack": "^5"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
+  },
+  "overrides": {
+    "jackspeak": "2.1.1"
+  },
+  "_moduleAliases": {
+    "@": "src",
+    "@components": "src/components",
+    "@hooks": "src/hooks"
+  },
+  "main": "dist-electron/main.js",
+  "packageManager": "yarn@4.1.0"
+}
