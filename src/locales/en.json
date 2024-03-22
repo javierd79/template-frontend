@@ -1,0 +1,9 @@
+{
+  "en": {
+    "translation": {
+      "headerTitle": "Test: {{appName}}",
+      "langButton": "Change language"
+    }
+  }
+}
+

@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-const NotFoundPage = lazy(() => import('../pages/errors/404'));
+const NotFoundPage = lazy(() => import('../pages/errors'));
 
 interface INotFound {
   /**

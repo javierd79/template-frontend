@@ -1,10 +1,24 @@
 import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { MantineProvider } from '@mantine/core';
+import { MantineProvider, MantineTheme } from '@mantine/core';
 import Loading from './components/Loading.tsx';
+import { Provider, useSelector } from 'react-redux'
+import { store, RootState } from './store'
 import './index.css';
+import './i18n.ts'
 
-export default function Main() {
+const Layout = ({ children }: { children?: React.ReactNode }) => {
+  return (
+    <StrictMode>
+      <Provider store={store}>
+        {children}
+      </Provider>
+    </StrictMode>
+  )
+}
+
+const AppWrapper = () => {
+  const mode = useSelector((state: RootState) => state.theme.mode)
   const [App, setApp] = useState<React.FC | null>(null);
 
   useEffect(() => {
@@ -22,31 +36,29 @@ export default function Main() {
     });
   }, []);
 
-  if (!App) {
-    return (
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{ colorScheme: 'dark' }}
-      >
-        <Loading
-          full
-          message="Loading..."
-        />
-      </MantineProvider>
-    );
-  }
-
   return (
-    <StrictMode>
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{ colorScheme: 'dark' }}
-      >
-        <App />
-      </MantineProvider>
-    </StrictMode>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        colorScheme: mode,
+        other: {
+          bgDark: "#1A1B1E",
+          bgLight: "#EEF5FF",
+          defaultFontSize: "1rem"
+        }
+      }}
+    >
+      {!App ? <Loading full message="Loading..." /> : <App />}
+    </MantineProvider>
+  );
+}
+
+export default function Main() {
+  return (
+    <Layout>
+      <AppWrapper />
+    </Layout>
   );
 }
 

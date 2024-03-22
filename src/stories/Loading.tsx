@@ -1,4 +1,6 @@
+import { store } from '../store';
 import { lazy, ReactNode } from 'react';
+import { Provider } from 'react-redux';
 
 const LoadingSP = lazy(() => import('../components/Loading'));
 
@@ -52,17 +54,19 @@ export const Loading = ({
   ...props
 }: ILoading) => {
   return (
-    <LoadingSP
-      full={full}
-      message={message}
-      color={color}
-      withBorder={withBorder}
-      backgroundBlur={backgroundBlur}
-      scheme={scheme}
-      margin={margin}
-      {...props}
-    >
-      {children}
-    </LoadingSP>
+    <Provider store={store}>
+      <LoadingSP
+        full={full}
+        message={message}
+        color={color}
+        withBorder={withBorder}
+        backgroundBlur={backgroundBlur}
+        scheme={scheme}
+        margin={margin}
+        {...props}
+      >
+        {children}
+      </LoadingSP>
+    </Provider>
   );
 };

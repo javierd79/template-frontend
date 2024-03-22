@@ -1,5 +1,6 @@
 import { terminal } from 'virtual:terminal'
 import { Title, Text, createStyles } from "@mantine/core"
+import { background } from './utils/background'
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -9,6 +10,7 @@ const useStyles = createStyles((theme) => ({
     height: '100vh',
     padding: '0 15px',
     flexDirection: 'column',
+    backgroundColor: background(),
     "&:after": {
       backgroundImage: 'url(/error.png)',
       backgroundPosition: 'center center',

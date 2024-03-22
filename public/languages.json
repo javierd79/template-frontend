@@ -1,0 +1,16 @@
+{
+  "langs": {
+    "es": {
+      "short": "es",
+      "intl": "es-VE",
+      "name": "Español",
+      "icon": "https://api.rifa-max.com/ve_icon.png"
+    },
+    "en": {
+      "short": "en",
+      "intl": "en-US",
+      "name": "English",
+      "icon": "https://api.rifa-max.com/en_icon.png"
+    }
+  }
+}

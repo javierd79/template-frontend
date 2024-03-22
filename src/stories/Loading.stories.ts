@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Loading } from "./Loading";
 
 const meta = {
-  title: "Shared/Loading",
+  title: "Components/Shared/Loading",
   component: Loading,
   parameters: {
     layout: "fullscreen",
@@ -30,7 +30,7 @@ export const Simple: Story = {
     full: false,
     backgroundBlur: false,
     scheme: "light",
-    margin: '5px 0'
+    margin: "5px 0",
   },
 };
 
@@ -39,16 +39,16 @@ export const FullScreen: Story = {
     full: true,
     message: "Loading...",
     scheme: "light",
-    margin: '5px 0'
+    margin: "5px 0",
   },
-}
-;
+};
+
 export const DarkMode: Story = {
   args: {
     full: true,
     message: "Loading...",
     scheme: "dark",
-    margin: '5px 0'
+    margin: "5px 0",
   },
 };
 
@@ -57,7 +57,7 @@ export const WithMessage: Story = {
     full: false,
     message: "Loading...",
     scheme: "light",
-    margin: '5px 0'
+    margin: "5px 0",
   },
 };
 
@@ -67,6 +67,6 @@ export const WithBorder: Story = {
     full: false,
     message: "Loading...",
     scheme: "light",
-    margin: '5px 0'
+    margin: "5px 0",
   },
 };

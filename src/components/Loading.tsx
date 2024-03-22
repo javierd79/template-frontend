@@ -1,3 +1,4 @@
+import { background } from '../utils/background'
 import { Text, Loader, createStyles, Group } from '@mantine/core'
 
 interface ILoader {
@@ -17,13 +18,13 @@ function Loading({
   withBorder = false,
   backgroundBlur = false,
   color,
-  scheme = "light",
+  scheme,
   margin,
   children
 }: ILoader) {
   const useStyles = createStyles((theme) => ({
     wrapper: {
-      backgroundColor: scheme === 'dark' || theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+      backgroundColor: background(scheme),
       backdropFilter: backgroundBlur ? 'blur(10px)' : 'none',
       display: 'flex',
       justifyContent: 'center',
@@ -33,11 +34,11 @@ function Loading({
       flexDirection: 'column',
     },
     group: {
-      border: withBorder ? `1px solid ${scheme == "dark" || theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]}` : 'none',
+      border: withBorder ? `1px solid ${scheme == "dark" || theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[4]}` : 'none',
       borderRadius: theme.radius.sm,
       padding: 20,
       margin: margin,
-      backgroundColor: scheme === 'dark' || theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[0],
+      backgroundColor: scheme === 'dark' || theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.white,
     },
     message: {
       color: scheme === "dark" || theme.colorScheme === 'dark' ? theme.white : theme.black,
